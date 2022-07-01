@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../paints/rect/view/rect.dart';
+import '../../paints/circle/view/circle.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class KPaint extends StatelessWidget {
       height: size.height,
       padding: const EdgeInsets.all(20),
       child: CustomPaint(
-        painter: RectPainter(),
+        painter: CirclePainter(),
       ),
     );
   }

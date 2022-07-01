@@ -4,6 +4,8 @@ import 'package:flutter/material.dart'
 import 'dark/dark_theme.dart' show darkTheme;
 import 'light/light_theme.dart' show lightTheme;
 
+late ThemeData theme;
+
 enum SelectedTheme {
   light,
   dark,
