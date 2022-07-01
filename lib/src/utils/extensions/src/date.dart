@@ -23,6 +23,7 @@ extension DateUtils on DateTime {
 
   DateTime get dateOnly => DateTime(year, month, day);
   int get hourIn12 => hour % 12 == 0 ? 12 : hour % 12;
+  int get hourAtMinutePoint => hourIn12 * 5;
 
   bool get isToday {
     final nowDate = DateTime.now();

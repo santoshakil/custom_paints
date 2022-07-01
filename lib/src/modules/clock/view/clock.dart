@@ -35,7 +35,7 @@ class Clock extends StatelessWidget {
               padding: clockSize * 0.1,
               intialValue: DateTime.now().minute,
               stream: Stream.periodic(
-                const Duration(minutes: 1),
+                const Duration(seconds: 1),
                 (_) => DateTime.now().minute,
               ),
             ),
@@ -43,10 +43,10 @@ class Clock extends StatelessWidget {
               width: 8,
               clockSize: clockSize,
               padding: clockSize * 0.15,
-              intialValue: DateTime.now().hourIn12,
+              intialValue: DateTime.now().hourAtMinutePoint,
               stream: Stream.periodic(
-                const Duration(hours: 1),
-                (_) => DateTime.now().hourIn12,
+                const Duration(seconds: 1),
+                (_) => DateTime.now().hourAtMinutePoint,
               ),
             ),
           ],
