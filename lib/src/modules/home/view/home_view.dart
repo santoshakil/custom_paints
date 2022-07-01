@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../clock/view/clock.dart';
 import '../../paints/circle/view/circle.dart';
 
 class HomeView extends StatelessWidget {
@@ -9,7 +10,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('CustomPainter')),
-      body: const KPaint(),
+      body: const Clock(),
     );
   }
 }
