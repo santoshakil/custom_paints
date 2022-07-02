@@ -18,8 +18,8 @@ class PointsPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final r = size.width / 2;
-    final r1 = r - 10;
-    final r2 = r - 17;
+    final r1 = r - 15;
+    final r2 = r - 22;
 
     // paint minute points
     for (var i = 1; i < 61; i++) {
