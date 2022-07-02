@@ -5,6 +5,7 @@ import '../painter/hand.dart';
 class HandView extends StatelessWidget {
   const HandView({
     Key? key,
+    required this.color,
     required this.width,
     required this.stream,
     required this.padding,
@@ -17,6 +18,7 @@ class HandView extends StatelessWidget {
   final int intialValue;
   final double padding;
   final double width;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,7 @@ class HandView extends StatelessWidget {
               s.data ?? intialValue,
               padding: padding,
               width: width,
+              color: color,
             ),
           ),
         );

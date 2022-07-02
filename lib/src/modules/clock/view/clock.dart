@@ -20,19 +20,21 @@ class Clock extends StatelessWidget {
           children: [
             MinutePointsView(clockSize: clockSize),
             HandView(
-              width: 3,
-              padding: 10,
+              width: 8,
               clockSize: clockSize,
-              intialValue: DateTime.now().second,
+              padding: clockSize * 0.15,
+              color: Colors.blueGrey,
+              intialValue: DateTime.now().hourAtMinutePoint,
               stream: Stream.periodic(
                 const Duration(seconds: 1),
-                (_) => DateTime.now().second,
+                (_) => DateTime.now().hourAtMinutePoint,
               ),
             ),
             HandView(
               width: 5,
               clockSize: clockSize,
               padding: clockSize * 0.1,
+              color: Colors.blue.shade800,
               intialValue: DateTime.now().minute,
               stream: Stream.periodic(
                 const Duration(seconds: 1),
@@ -40,13 +42,14 @@ class Clock extends StatelessWidget {
               ),
             ),
             HandView(
-              width: 8,
+              width: 3,
+              padding: 10,
               clockSize: clockSize,
-              padding: clockSize * 0.15,
-              intialValue: DateTime.now().hourAtMinutePoint,
+              color: Colors.teal.shade600,
+              intialValue: DateTime.now().second,
               stream: Stream.periodic(
                 const Duration(seconds: 1),
-                (_) => DateTime.now().hourAtMinutePoint,
+                (_) => DateTime.now().second,
               ),
             ),
           ],
