@@ -24,15 +24,15 @@ class HandPainter extends CustomPainter {
       ..strokeWidth = width
       ..color = color;
 
-    final a = (s - 15) * 6 * pi / 180;
     final r = size.width / 2;
-    final c = Offset(r, r);
     final r1 = r - padding;
-
-    canvas.drawCircle(c, 10, paintC);
-
+    final c = Offset(r, r);
+    final a = s * pi / 30;
     final p = Offset(r + r1 * cos(a), r + r1 * sin(a));
-    canvas.drawLine(c, p, paint);
+
+    canvas
+      ..drawLine(c, p, paint)
+      ..drawCircle(c, 10, paintC);
   }
 
   @override

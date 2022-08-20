@@ -11,7 +11,7 @@ part 'setting_model.g.dart';
 class AppConfig {
   AppConfig({this.firstRun = true, this.themeIndex = 0});
 
-  Id? id;
+  Id id = 0;
 
   final int themeIndex;
 

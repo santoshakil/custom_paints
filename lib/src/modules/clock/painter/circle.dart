@@ -8,10 +8,6 @@ class CirclePainter extends CustomPainter {
     ..strokeCap = StrokeCap.round
     ..strokeWidth = 18
     ..style = PaintingStyle.stroke;
-  final _paintB = Paint()
-    ..color = Colors.blueGrey.withOpacity(0.3)
-    ..style = PaintingStyle.stroke
-    ..strokeWidth = 18;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -24,14 +20,6 @@ class CirclePainter extends CustomPainter {
       2 * pi,
       false,
       _paint,
-    );
-
-    canvas.drawArc(
-      Rect.fromCircle(center: c, radius: r * 0.7),
-      -pi / 2,
-      pi / 2,
-      false,
-      _paintB,
     );
   }
 

@@ -281,14 +281,6 @@ extension AppConfigQueryFilter
     });
   }
 
-  QueryBuilder<AppConfig, AppConfig, QAfterFilterCondition> idIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'id',
-      ));
-    });
-  }
-
   QueryBuilder<AppConfig, AppConfig, QAfterFilterCondition> idEqualTo(
       int value) {
     return QueryBuilder.apply(this, (query) {

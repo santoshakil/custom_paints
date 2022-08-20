@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../utils/extensions/extension.dart';
 import '../painter/circle.dart';
+import '../painter/curve.dart';
 import '../painter/text.dart';
 import 'hand.dart';
 import 'points.dart';
@@ -14,19 +15,23 @@ class Clock extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final clockSize = size.width * 0.9;
     return Center(
-      child: Card(
-        elevation: 10.0,
-        shape: const StadiumBorder(),
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            MinutePointsView(clockSize: clockSize),
-            _Circle(clockSize: size.width * 0.9),
-            _Hour(clockSize: clockSize),
-            _Minute(clockSize: clockSize),
-            _Second(clockSize: clockSize),
-            _Text(clockSize: size.width * 0.95),
-          ],
+      child: RotatedBox(
+        quarterTurns: 3,
+        child: Card(
+          elevation: 10.0,
+          shape: const StadiumBorder(),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              MinutePointsView(clockSize: clockSize),
+              _Circle(clockSize: size.width * 0.9),
+              _Curve(clockSize: size.width * 0.9),
+              _Hour(clockSize: clockSize),
+              _Minute(clockSize: clockSize),
+              _Second(clockSize: clockSize),
+              _Text(clockSize: size.width * 0.95),
+            ],
+          ),
         ),
       ),
     );
@@ -57,6 +62,26 @@ class _Circle extends StatelessWidget {
       width: clockSize,
       height: clockSize,
       child: CustomPaint(painter: CirclePainter()),
+    );
+  }
+}
+
+class _Curve extends StatelessWidget {
+  const _Curve({Key? key, required this.clockSize}) : super(key: key);
+  final double clockSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: clockSize,
+      height: clockSize,
+      child: CustomPaint(
+        painter: TimeCurvePainter(
+          start: const TimeOfDay(hour: 11, minute: 30),
+          end: const TimeOfDay(hour: 15, minute: 30),
+          text: '11:30 - 15:30',
+        ),
+      ),
     );
   }
 }
