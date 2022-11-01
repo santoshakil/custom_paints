@@ -28,12 +28,11 @@ class TimeCurvePainter extends CustomPainter {
     final rect = Rect.fromCircle(center: c, radius: r * 0.7);
     canvas.drawArc(rect, startAngle, endAngle - startAngle, false, _paint);
 
-    const initialAngle = 90.0;
+    double angle = 90.0;
     canvas
-      ..translate(size.width / 2, size.height / 2 - 90)
-      ..rotate(initialAngle / 2)
-      ..translate(180 * sin(initialAngle / 2), 0);
-    double angle = initialAngle;
+      ..translate(r, r - angle)
+      ..rotate(angle / 2)
+      ..translate(180 * sin(angle), 0);
     for (int i = 0; i < text.length; i++) {
       angle = drawLetter(canvas, text[i], angle);
     }
@@ -53,9 +52,9 @@ class TimeCurvePainter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
-double radians(double degrees) => degrees * pi / 180;
-
 double _angle(TimeOfDay time) => radians(time.hour * 30 + time.minute * 0.5);
+
+double radians(double degrees) => degrees * pi / 180;
 
 const _ltr = TextDirection.ltr;
 const _style = TextStyle(

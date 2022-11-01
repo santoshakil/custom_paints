@@ -77,9 +77,9 @@ class _Curve extends StatelessWidget {
       height: clockSize,
       child: CustomPaint(
         painter: TimeCurvePainter(
-          start: const TimeOfDay(hour: 11, minute: 30),
-          end: const TimeOfDay(hour: 15, minute: 30),
-          text: '11:30 - 15:30',
+          start: const TimeOfDay(hour: 12, minute: 30),
+          end: const TimeOfDay(hour: 16, minute: 30),
+          text: '12:30 - 16:30',
         ),
       ),
     );
